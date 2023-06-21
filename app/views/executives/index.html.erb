@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Executives</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @executives.each do |executives|%>
+      <tr>
+        <th scope="row"><%= executives.id %></th>
+        <td><%= executives.name%></td>
+        <td><%= executives.last_name%></td>
+        <td><%= executives.phone_number%></td>
+        <td><%= executives.role%></td>
+        <td><%= link_to "Show this executive", executives, :class => "btn btn-primary" %></td>
+      </tr>
+    <%end%> 
+  </tbody>
+</table>
+

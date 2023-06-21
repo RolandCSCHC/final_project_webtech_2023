@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+
+<h1>Tickets</h1>
+<div id="t-table">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Status</th>
+      <th scope="col">Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |tickets|%>
+      <tr>
+        <th scope="row"><%= tickets.id %></th>
+        <td><%= tickets.title %></td>
+        <td><%= tickets.priority%></td>
+        <td><%= tickets.status%></td>
+        <td><%= tickets.tags%></td>
+        <td><%= link_to "Show this ticket", tickets, :class => "btn btn-primary" %></td>
+      </tr>
+    <%end%> 
+  </tbody>
+</table>
+</div>
+
+<%= link_to "New ticket", new_ticket_path, :class => "btn btn-primary" %>
+
+
+
+
+

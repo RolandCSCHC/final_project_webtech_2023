@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  executive: one
+  customer: one
+  comment: one
+  incident_date: 2023-05-21
+  deadline_date: 2023-05-21
+  close_date: 2023-05-21
+  title: MyString
+  description: MyString
+  priority: MyString
+  status: MyString
+  tags: MyString
+  resolution_eval: 1
+
+two:
+  id: 1
+  executive: two
+  customer: two
+  comment: two
+  incident_date: 2023-05-21
+  deadline_date: 2023-05-21
+  close_date: 2023-05-21
+  title: MyString
+  description: MyString
+  priority: MyString
+  status: MyString
+  tags: MyString
+  resolution_eval: 1

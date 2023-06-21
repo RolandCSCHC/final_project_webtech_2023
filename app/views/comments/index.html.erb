@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comments|%>
+      <tr>
+        <th scope="row"><%= comments.id %></th>
+        <td><%= comments.comment_timestamp.strftime("%Y-%m-%d") %></td>
+        <td><%= comments.content%></td>
+        <td><%= link_to "Show this comment", comments, :class => "btn btn-primary" %></td>
+      </tr>
+    <%end%> 
+  </tbody>
+</table>
+
+<%= link_to "New comment", new_comment_path, :class => "btn btn-primary" %>

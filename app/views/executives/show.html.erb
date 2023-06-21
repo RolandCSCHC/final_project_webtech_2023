@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @executive %>
+
+<h5> <%= "Name: "%> <%= @executive.name%> </h5>
+<h5> <%= "Last Name: "%> <%= @executive.last_name%> </h5>
+<h5> <%= "Phone Number: "%> <%= @executive.phone_number%> </h5>
+<h5> <%= "Role: "%> <%= @executive.role%> </h5>
+
+<div>
+<% if current_user.role == "Administrator" || current_user.role == "Supervisor" || current_user.role == "Executive"%>
+  <%= link_to "Edit this executive", edit_executive_path(@executive), :class => "btn btn-primary" %> |
+  <%= link_to "Back to executives", executives_path, :class => "btn btn-primary" %> |
+  <%= link_to "Home", root_path , :class => "btn btn-primary" %>
+  <%= button_to "Delete this executive", @executive, method: :delete, class:"btn btn-danger" %>
+<% else %>
+  <%= link_to "Back to executives", executives_path, :class => "btn btn-primary" %> |
+  <%= link_to "Home", root_path , :class => "btn btn-primary" %>
+<% end %>
+</div>

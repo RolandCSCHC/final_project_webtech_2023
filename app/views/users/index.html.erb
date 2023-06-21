@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone Number</th>
+      <th scopr="col">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |users|%>
+      <tr>
+        <th scope="row"><%= users.id %></th>
+        <td><%= users.name %></td>
+        <td><%= users.last_name%></td>
+        <td><%= users.phone_number%></td>
+        <% if users.role == "" %>
+        <td>User</td>
+        <% else %>
+        <td><%= users.role%></td>
+        <% end %>
+        <td><%= link_to "Show this user", users, :class => "btn btn-primary" %></td>
+      </tr>
+    <%end%> 
+  </tbody>
+</table>

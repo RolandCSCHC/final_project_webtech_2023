@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  comment_timestamp: 2023-05-21
+  content: MyString
+  visible_to_all: false
+
+two:
+  id: 1
+  comment_timestamp: 2023-05-21
+  content: MyString
+  visible_to_all: false

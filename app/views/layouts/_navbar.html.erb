@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <%= link_to "Home", root_path, class: "navbar-brand"%>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <% if user_signed_in? %>
+        <% if current_user.role == "Administrator" || current_user.role == "Supervisor" || current_user.role == "Executive"%>
+          <li class="nav-item">
+            <%= link_to "Users", :users, class: "nav-link active"%>
+          </li>
+          <% end %>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to "Tickets", :tickets, class: "nav-link active"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Comments", :comments, class: "nav-link active"%> 
+        </li>
+        <% if user_signed_in? %>
+        <div> Welcome <%= current_user.name %> <%= current_user.last_name %></div> 
+          <li class="nav-item">
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo_method: "delete" }, class: "nav-link", :class => "btn btn-danger" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Log In", new_user_session_path, class: "nav-link", :class => "btn btn-success" %>|
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link", :class => "btn btn-primary" %>
+          </li>
+        <% end %>
+      </ul>
+      <form class="d-flex" role="search" action="/search">
+        <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @ticket %>
+
+<h5> <%= "User ID: "%> <%= @ticket.user_id%> </h5>
+<h5> <%= "Executive ID: "%> <%= @ticket.executive_id%> </h5>
+<h5> <%= "Comment ID: "%> <%= @ticket.comment_id%> </h5>
+<h5> <%= "Title: "%> <%= @ticket.title%> </h5>
+<h5> <%= "Description: "%> <%= @ticket.description%> </h5>
+<h5> <%= "Priority: "%> <%= @ticket.priority%> </h5>
+<h5> <%= "Status: "%> <%= @ticket.status%> </h5>
+<h5> <%= "Tags: "%> <%= @ticket.tags%> </h5>
+<h5> <%= "Incidents date: "%> <%= @ticket.incident_date%> </h5>
+<h5> <%= "Deadlines date: "%> <%= @ticket.deadline_date%> </h5>
+<h5> <%= "Closed at date: "%> <%= @ticket.close_date%> </h5>
+ <%= link_to "Show the related comment", @ticket.comment, :class => "btn btn-primary" %>
+ <h2> <%= "________________________________________________________"%> </h2>
+
+
+<div>
+<% if current_user.role == "Administrator" || current_user.role == "Supervisor" || current_user.role == "Executive"%>
+  <%= link_to "Edit this ticket", edit_ticket_path(@ticket), :class => "btn btn-primary" %> |
+  <%= link_to "Back to tickets", tickets_path, :class => "btn btn-primary" %> |
+  <%= link_to "Home", root_path , :class => "btn btn-primary" %>
+  <%= button_to "Delete this ticket", @ticket, method: :delete, class:"btn btn-danger" %>
+<% else %>
+  <%= link_to "Back to tickets", tickets_path, :class => "btn btn-primary" %> |
+  <%= link_to "Home", root_path , :class => "btn btn-primary" %>
+<% end %>
+</div>

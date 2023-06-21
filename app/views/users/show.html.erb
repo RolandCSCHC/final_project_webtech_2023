@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<h5> <%= "Name: "%> <%= @user.name%> </h5>
+<h5> <%= "Last Name: "%> <%= @user.last_name%> </h5>
+<h5> <%= "Phone number: "%> <%= @user.phone_number%> </h5>
+
+<div>
+<% if current_user.role == "Administrator" || current_user.role == "Supervisor" || current_user.role == "Executive"%>
+  <%= link_to "Edit this user", edit_user_path(@user), :class => "btn btn-primary" %> |
+  <%= link_to "Back to users", users_path, :class => "btn btn-primary" %> |
+  <%= link_to "Home", root_path , :class => "btn btn-primary" %>
+  <%= button_to "Delete this user", @user, method: :delete, class:"btn btn-danger" %>
+<% else %>
+  <%= link_to "Back to users", users_path, :class => "btn btn-primary" %> |
+  <%= link_to "Home", root_path , :class => "btn btn-primary" %>
+<% end %>
+</div>
